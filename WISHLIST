@@ -1,0 +1,24 @@
+
+WISHLIST
+
+o proj, step, extractAIC, add1, drop1, effects (check whether these work 
+  already and if not add dyn methods)
+
+o let lm's used in anova use subset (currently anova takes it over so
+  it cannot be used if anova is to be used)
+
+o expand documentation on subsetting (demo/airquality.R for example)
+
+o pass 'call' rather than 'series' data structure from 'model.frame.dyn'
+
+o why do 'nnet::nnet' and 'e1071::svm' not work?
+
+o support for regression functions that do not provide named
+  index labels on fitted and resid.
+
+o more testing
+
+o more examples
+
+o timeSeries support (leverage off of zoo)
+

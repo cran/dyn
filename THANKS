@@ -1,0 +1,18 @@
+Thanks to the following people:
+
+  Whit Armstrong <Whit.Armstrong@tudor.com>
+  - information on model.frame
+
+  Matthieu Cormec <matthieu.cormec@gmail.com>
+  - testing
+
+  Roger Koenker <rkoenker@uiuc.edu>
+  - quantreg::rq upgrade and testing
+
+  Andy Liaw <andy_liaw@merck.com>
+  - randomForest upgrade
+
+  Achim Zeileis <Achim.Zeileis@wu-wien.ac.at>
+  - discussions on zoo
+  - packaging information
+

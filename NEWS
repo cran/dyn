@@ -1,0 +1,27 @@
+
+Changes in Version 0.1-2
+
+  o dyn class
+
+  o anova.dyn
+
+  o update.dyn
+
+  o irts (package tseries) and its (package its) support
+
+  o combined fitted methods for zoo, zooreg, ts, irts and its.  Same
+    for residuals and same for predict.
+
+  o testing with glm, MASS::rlm, MASS::lqs, randomForest, quantreg::rq
+
+  o testing with na.omit, na.exclude
+
+  o more demos
+
+Changes in Version 0.1-1
+
+  o zoo, zooreg and ts methods for model.frame, predict, fitted, resid
+
+  o testing with lm
+
+

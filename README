@@ -1,0 +1,56 @@
+
+dyn is a new R package (www.r-project.org) that
+facilitates dynamic regression, i.e.  regression of time
+series where the model specification may include lags and
+diffs and the data may include missing values.
+It is a lightweight package that has no facilities
+of its own but leverages off the various time series and
+regression functions in R to make it easier to use them
+together:
+
+Its features include:
+
+- many regression functions.  It can be used with lm, glm,
+  loess, rq, randomForest, lqs, rlm and any other regression 
+  functions.
+
+- many time series classes. It can be used with ts, zooreg,
+  zoo, its, and irts time series classes.  
+
+- missing values.  Time series may have missing values including
+  internal missing values.  Both na.omit and na.exclude are
+  supported.  
+
+- good citizen.  It does not modify any standard R functions.
+  It simply adds new dyn methods to the standard R generics:
+  model.frame, resid, fitted, predict, update and anova and $.
+
+- ease of use.  dyn enables one to use the same regression
+  functions (lm, glm, etc.) using the same syntax one has
+  always used.  Just preface the regression function with dyn$
+  and it is transformed into a regression function that can
+  handle time series:
+
+   dyn$lm( y ~ x + lag(x) + diff(w) )     # lm
+   dyn$loess( y ~ x + lag(x) + diff(w) )  # loess
+
+- modular.  dyn can be used with any regression function that
+  uses model.frame and is written in the style of lm.  Additional
+  classes can be added to dyn simply by adding new methods. dyn
+  is modular which means that it does not itself have to be changed.
+
+- documentation.  It includes a help page and six demos.
+
+   ?dyn           # help file
+   demo()         # look under dyn for list of demos
+   demo("dyn-rq") # runs indicated dyn demo
+
+The package is available on CRAN now. Comments/questions welcome.
+
+Acknowledgments
+
+Thanks to Whit Armstrong for introducing me to the lm
+internals, Matthieu Cornec for independent testing and
+comments which greatly improved the package and Achim
+Zeileis for numerous discussions.
+
