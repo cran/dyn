@@ -30,7 +30,7 @@
 \concept{dynamic regression}
 \title{ dynamic regression class }
 \description{
-dyn is constructs objects of class \code{"dyn"},
+dyn is used to construct objects of class \code{"dyn"} 
 }
 \usage{
 dyn(x)
@@ -43,41 +43,37 @@ dyn(x)
 \details{
 
   \code{"dyn"} enables regression functions that were not written to handle
-  time series to so handle them.  The time series need not have the same
-  indexes (the are automatically intersected) and may have missing
-  values including internal missing values. 
-
-  \code{"dyn"} creates a dynamic regression object by
-  returning \code{x} with the \code{"dyn"} class name 
-  prepended to the class of the argument.  
-
-  If the argument to \code{"dyn"}
-  is a formula its variables may be time series objects of one
-  of the following classes: \code{"ts"}, \code{"irts"},
-  code{"its"}, \code{"zoo"} or \code{"zooreg"}.  
-
-  \code{"dyn"} methods are available for \code{"model.frame"}, \code{"fitted"},
-  \code{"residuals"}, \code{"predict"}, \code{"update"}, \code{"anova"}
-  and \code{"$"}.
-  These methods preprocess their arguments, 
-  call the real method which does the actual work
-  and then post process the returned object.  In the case of \code{"fitted"},
-  \code{"residuals"} and \code{"predict"} they ensure that the result is
-  a time series.  In the case of \code{anova} the objects are
-  intersected so that they all have the time indexes
-  to ensure that a meaningful input is provided to \code{"anova"}.
-
-  The \code{$} method is always used with a left argument of \code{"dyn"}
-  like this \code{"dyn$lm(x, ...)"}.  This expression  is equivalent to 
-  \code{"dyn(lm(dyn(x), ...))"} but is more convenient to write.
+  time series to handle them.  Both the dependent and independent variables
+  may be time series and they may have different time indexes (in which 
+  case they are automatically aligned). The time series may also have
+  missing values including internal missing values. 
 
   \code{"dyn"} currently works with any regression function that makes
   use of \code{"model.frame"} and is written in the style of \code{"lm"}.
   This includes \code{"lm"}, \code{"glm"}, \code{"loess"}, \code{"rlm"}
   (from \pkg{"MASS"}), \code{"lqs"} (from pkg{"MASS"}), \code{"randomForest"}
   (from \pkg{"randomForest"}), \code{"rq"} (from \pkg{"quantreg"}) and
-  likely others.
+  others.  The time series objects can
+  be one of the following classes: \code{"ts"}, \code{"irts"},
+  code{"its"}, \code{"zoo"} or \code{"zooreg"}.   
 
+  Typically \code{"dyn"} is used like this \code{"dyn$lm(y ~ lag(y, -1))"}.  
+  That is, one prepends the usual \code{"lm"} or other regression function
+  with \code{"dyn$"} and then uses time series including \code{"lag"}
+  and \code{"diff"} operators in the formula.   
+  The returned object has a class vector beginning with
+  \code{"dyn"} and includes all classes that it would have had
+  without \code{"dyn"}.  \code{"dyn"} methods include
+  \code{"model.frame"}, \code{"fitted"},
+  \code{"residuals"}, \code{"predict"}, \code{"update"}, \code{"anova"}
+  and \code{"$"} methods. 
+  These methods preprocess their arguments, 
+  call the real method which does the actual work
+  and then post process the returned object.  In the case of \code{"fitted"},
+  \code{"residuals"} and \code{"predict"} they ensure that the result is
+  a time series.  In the case of \code{anova} the objects are
+  intersected so that they all have the time indexes
+  to ensure that a comparable input is provided to \code{"anova"}.
 }
 \value{
   \code{"dyn"} returns its argument with the class name \code{"dyn"}
@@ -116,6 +112,12 @@ dyn(x)
   in the original data and that they follow the same style of
   processing as \code{"lm"}.  There is no \code{"dyn"} code
   specific to any particular regression routine.
+
+  \code{"dyn$lm(formula)"} is equivalent to \code{"dyn(lm(dyn(formula)))"}
+  but is easier to write.  When \code{"dyn"} is used with an argument,
+  as just shown, then its effect is simply to return its argument with
+  the \code{"dyn"} class prepended to the class vector so that further
+  processing of the result is intercepted by other \code{"dyn"} methods.
 }
 
 \seealso{ See Also
@@ -144,7 +146,7 @@ y.lm
 summary(y.lm)
 residuals(y.lm)
 fitted(y.lm)
-y2.lm <- update(y.lm, . ~ . + lag(x))
+y2.lm <- update(y.lm, . ~ . + lag(x,-1))
 y2.lm
 anova(y.lm, y2.lm)
 
