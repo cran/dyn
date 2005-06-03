@@ -38,7 +38,8 @@ Its features include:
 - modular.  dyn can be used with any regression function that
   uses model.frame and is written in the style of lm.  Additional
   classes can be added to dyn simply by adding new methods. dyn
-  is modular so it does not, itself, have to be changed.
+  is modular so such updates can be made without changing dyn, 
+  itself. 
 
 - documentation.  It includes a help page and six demos.
 

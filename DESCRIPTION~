@@ -1,6 +1,6 @@
 Package: dyn
-Version: 0.2-1
-Date: 2004-05-23
+Version: 0.2-2
+Date: 2005-06-03
 Title: Time Series Regression
 Author: Gabor Grothendieck
 Maintainer: Gabor Grothendieck <ggrothendieck@myway.com>
@@ -12,6 +12,6 @@ Description: Time series regression.  The dyn class interfaces
 	     time series including specifications that may contain 
              lags, diffs and missing values.
 Depends: R (>= 2.1.0), zoo (>= 0.9-9)
-Suggests: its, MASS, quantreg (>= 3.82), randomForest, tseries
+Suggests: its (>= 1.0.9), MASS, quantreg (>= 3.82), randomForest, tseries
 License: GPL
-Packaged: Tue May 24 04:47:15 2005; Kates
+Packaged: Fri Jun  3 09:34:47 2005; Kates

@@ -15,7 +15,7 @@ fitted.zoo <- function(object, ...) {
    rval <- zoo(fitted(object), tt, frequency = frequency(series[[1]]))
    as.x <- paste("as", attr(model.frame(object), ".Class"), sep = ".")
    # workaround for bug in its
-   if (length(as.x) == 1 && as.x == "as.its") as.x <- "as.its.zoo" 
+   # if (length(as.x) == 1 && as.x == "as.its") as.x <- "as.its.zoo" 
    i <- which(sapply(as.x, exists))[1]
    match.fun(as.x[i])(rval)
 }
@@ -35,7 +35,7 @@ residuals.zoo <- function(object, ...) {
    rval <- zoo(residuals(object), tt, frequency = frequency(series[[1]]))
    as.x <- paste("as", attr(model.frame(object), ".Class"), sep = ".")
    # workaround for bug in its
-   if (length(as.x) == 1 && as.x == "as.its") as.x <- "as.its.zoo" 
+   # if (length(as.x) == 1 && as.x == "as.its") as.x <- "as.its.zoo" 
    i <- which(sapply(as.x, exists))[1]
    match.fun(as.x[i])(rval)
 }
@@ -59,7 +59,7 @@ predict.zoo <- function(object, newdata, ...) {
    rval <- zoo(predict(object, newdata, ...), time(tt), freq = frequency(tt))
    as.x <- paste("as", attr(model.frame(object), ".Class"), sep = ".")
    # workaround for bug in its
-   if (length(as.x) == 1 && as.x == "as.its") as.x <- "as.its.zoo" 
+   # if (length(as.x) == 1 && as.x == "as.its") as.x <- "as.its.zoo" 
    i <- which(sapply(as.x, exists))[1]
    match.fun(as.x[i])(rval)
 }
