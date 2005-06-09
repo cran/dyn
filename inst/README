@@ -9,8 +9,8 @@ use them together.
 Its features include:
 
 - many regression functions.  It can be used with lm, glm,
-  loess, rq, randomForest, lqs, rlm any other regression 
-  functions that uses model.frame and is written in the
+  loess, rq, randomForest, lqs, rlm and any other regression 
+  functions that use model.frame and are written in the
   style of lm.
 
 - many time series classes. It can be used with ts, zooreg,

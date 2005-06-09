@@ -1,6 +1,8 @@
 
 WISHLIST
 
+o vignette
+
 o proj, step, extractAIC, add1, drop1, effects (check whether these work 
   already and if not add dyn methods)
 
