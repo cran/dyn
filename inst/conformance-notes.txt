@@ -1,0 +1,10 @@
+
+Packages should:
+
+- use model frame
+- not coerce data to a data frame (but may use as.list(data))
+- residuals, fitted and predict should work with the package
+  and the resulting vectors should be named with the row
+  number (if they are not provided then dyn may still work
+  but then residuals, fitted and predict will not be available)
+

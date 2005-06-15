@@ -43,9 +43,15 @@ Its features include:
 
 - documentation.  It includes a help page and six demos.
 
-   ?dyn           # help file
-   demo()         # look under dyn for list of demos
-   demo("dyn-rq") # runs indicated dyn demo
+   ?dyn                   # help file
+   demo(package = "dyn")  # list of demos
+   demo("dyn-rq")         # runs indicated dyn demo
+
+   # other information
+   file.show(system.file("NEWS", package = "dyn"))  
+   file.show(system.file("README", package = "dyn") # this file
+   file.show(system.file("THANKS", package = "dyn"))
+   file.show(system.file("WISHLIST", package = "dyn"))
 
 The package is available on CRAN.  Comments/questions welcome.
 

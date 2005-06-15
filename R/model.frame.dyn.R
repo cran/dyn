@@ -16,7 +16,8 @@ model.frame.dyn <- function (formula, data = NULL, ...)
 	attr(mf, "series") <- eval(predvars, as.list(data), env)
 	for(i in seq(mf)) 
 		if (!inherits(mf[[i]], "factor")) 
-			mf[[i]] <- as.vector(unclass(mf[[i]]))
+			# mf[[i]] <- as.vector(unclass(mf[[i]]))
+			mf[[i]] <- coredata(mf[[i]])
 	mf
 }
 
@@ -34,6 +35,7 @@ model.frame.zoo <- function (formula, data = NULL, ...)
 	cl <- attr(formula, "variables")
 	cl[[1]] <- as.name("merge.zoo")
 	cl$retclass <- "data.frame"
+	cl$retclass <- "list"
 	cl$all <- TRUE
 	attr(formula, "predvars") <- as.call(cl)
 	NextMethod("model.frame", formula, data = data, ...)
