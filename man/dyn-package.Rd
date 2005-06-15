@@ -17,7 +17,7 @@ values.
 \code{"dyn"} allows one to use time series with regression functions
 that were not originally written to support time series by simply
 prefacing the call to the regression function with \code{"dyn$"}.  The 
-following are source of information on \code{"dyn"}:
+following are sources of information on \code{"dyn"}:
 \tabular{ll}{
 Overview\tab file.show(system.file("README", package = "dyn"))\cr
 News\tab file.show(system.file("NEWS", package = "dyn"))\cr
@@ -33,7 +33,7 @@ Help file\tab ?dyn\cr
 \keyword{models}
 \examples{
 x <- ts(seq(10)^2)
-dyn$lm(x ~ lag(x))
-dyn$glm(x ~ lag(x))
-dyn$loess(x ~ lag(x))
+dyn$lm(x ~ lag(x,-1))
+dyn$glm(x ~ lag(x,-1))
+dyn$loess(x ~ lag(x,-1))
 }

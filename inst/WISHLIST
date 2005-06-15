@@ -1,6 +1,16 @@
 
 WISHLIST
 
+o names of matrix x-components not working correctly
+
+o this gives an error:
+
+	m <- tapply(co2, gl(12,1,length(co2)), mean)
+	m <- rep(m, ceiling(length(co2)/12)) [1:length(co2)]
+	m <- ts(m, start=start(co2), frequency=frequency(co2))
+	plot(co2-m, ylab = "Without the periodic component")
+	r <- dyn$lm(co2-m ~ poly(as.vector(time(m)),2))
+
 o vignette
 
 o proj, step, extractAIC, add1, drop1, effects (check whether these work 
