@@ -1,7 +1,9 @@
 dyn	Time series regression with ts
 dyn-airquality	Use of builtin airquality data set
 dyn-freeny	Use of builtin freeny data set
+dyn-mcmcpack	Bayesian econometric regression with MCMCpack (D Accolley, 2009)
 dyn-na	Time series regression with NAs
+dyn-onestep	One step lookahead
 dyn-naexclude	Time series regression with leading NAs
 dyn-rq	Time series quantile regression
 dyn	Time series regression demo

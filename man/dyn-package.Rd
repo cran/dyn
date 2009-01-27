@@ -20,11 +20,14 @@ prefacing the call to the regression function with \code{"dyn$"}.  The
 following are sources of information on \code{"dyn"}:
 \tabular{ll}{
 Overview\tab file.show(system.file("README", package = "dyn"))\cr
-News\tab file.show(system.file("NEWS", package = "dyn"))\cr
-Acknowledgements\tab file.show(system.file("THANKS", package = "dyn"))\cr
-Wish List\tab file.show(system.file("WISHLIST", package = "dyn"))\cr
-List of demo files\tab demo(package = "dyn"))\cr
+News\tab RShowDoc("NEWS", package = "dyn")\cr
+Acknowledgements\tab RShowDoc("THANKS", package = "dyn")\cr
+Wish List\tab RShowDoc("WISHLIST", package = "dyn")\cr
+License\tab RShowDoc("COPYING", package = "dyn")\cr
+Citation\tab citation(package = "dyn")\cr
+List of all demo files\tab demo(package = "dyn"))\cr
 Invoking a demo file\tab demo("dyn-rq")\cr
+Source of demo file\tab file.show(system.file("dyn-rq.R", package = "dyn"))\cr
 This File\tab package?dyn\cr
 Help file\tab ?dyn\cr
 }

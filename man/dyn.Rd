@@ -7,6 +7,7 @@
 \alias{model.frame.ts}
 \alias{model.frame.zoo}
 \alias{model.frame.zooreg}
+\alias{model.matrix.dyn}
 \alias{predict.dyn}
 \alias{predict.ts}
 \alias{predict.zoo}
@@ -51,11 +52,12 @@ dyn(x)
   \code{"dyn"} currently works with any regression function that makes
   use of \code{"model.frame"} and is written in the style of \code{"lm"}.
   This includes \code{"lm"}, \code{"glm"}, \code{"loess"}, \code{"rlm"}
-  (from \pkg{"MASS"}), \code{"lqs"} (from pkg{"MASS"}), \code{"randomForest"}
+  (from \pkg{"MASS"}), \code{"lqs"} (from \pkg{"MASS"}), \code{"MCMCregress"}
+  (from \pkg{"MCMCpack"}), \code{"randomForest"}
   (from \pkg{"randomForest"}), \code{"rq"} (from \pkg{"quantreg"}) and
   others.  The time series objects can
   be one of the following classes: \code{"ts"}, \code{"irts"},
-  code{"its"}, \code{"zoo"} or \code{"zooreg"}.   
+  \code{"its"}, \code{"zoo"} or \code{"zooreg"}.   
 
   Typically \code{"dyn"} is used like this \code{"dyn$lm(y ~ lag(y, -1))"}.  
   That is, one prepends the usual \code{"lm"} or other regression function
@@ -71,8 +73,8 @@ dyn(x)
   call the real method which does the actual work
   and then post process the returned object.  In the case of \code{"fitted"},
   \code{"residuals"} and \code{"predict"} they ensure that the result is
-  a time series.  In the case of \code{anova} the objects are
-  intersected so that they all have the time indexes
+  a time series.  In the case of \code{anova} the times of the objects are
+  intersected so that they all have the same time indexes
   to ensure that a comparable input is provided to \code{"anova"}.
 }
 \value{
@@ -81,17 +83,18 @@ dyn(x)
   and \code{"predict"} \code{"dyn"} methods return time series of the
   appropriate class.  \code{"model.frame"} creates a model frame with
   an attribute of \code{"series"} that contains a data frame of 
-  the time series and factor variables as columns.
+  the time series and factor variables as columns. \code{"model.matrix"}
+  returns a model matrix of class \code{"matrix"}.
 }
 \note{\code{"dyn"} relies on the underlying time series classes
   and regression routines for all substantive functionality.
   In particular note these limitations: \code{"irts"} has no
   \code{"lag"} or \code{"diff"} methods.  The lag function of
-  \code{"its"} its called \code{"lagIts"}.  \code{"ts"} and
+  \code{"its"} is called \code{"lagIts"}.  \code{"ts"} and
   \code{"zooreg"} series can be lagged outside of the data
   range (both forward and backward) but other time series
   classes cannot represent such data and therefore will drop them.
-  If the regression function in questions does not have an
+  If the regression function in question does not have an
   associated \code{"fitted"}, \code{"residuals"}, etc. method
   then such method will not be available with \code{"dyn"} either.  
 
@@ -113,7 +116,9 @@ dyn(x)
   processing as \code{"lm"}.  There is no \code{"dyn"} code
   specific to any particular regression routine.
 
-  \code{"dyn$lm(formula)"} is equivalent to \code{"dyn(lm(dyn(formula)))"}
+  \code{"dyn$lm(formula, ...)"} is equivalent to 
+  \code{"dyn(lm(dyn(formula), ...))"} (where \code{"formula"} is assumed
+  to be the first argument)
   but is easier to write.  When \code{"dyn"} is used with an argument,
   as just shown, then its effect is simply to return its argument with
   the \code{"dyn"} class prepended to the class vector so that further
@@ -157,5 +162,13 @@ dyn$lm(y ~ diffx, list(y = y, diffx = diff(x)))
 # invoke model.frame on formula as a dyn object
 dyn$model.frame( y ~ diff(x) )
 
+# superimpose a loess fit on Nile time series data
+plot(Nile)
+lines(fitted(dyn$loess(Nile ~ time(Nile))), col = "red")
+
+# lag.zoo can take vector lags
+set.seed(1)
+yz <- zoo(rnorm(100)); xz <- zoo(rnorm(100))
+yz.lm <- dyn$lm(yz ~ lag(xz, 0:-3))
 }
 \keyword{regression}

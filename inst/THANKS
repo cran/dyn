@@ -1,15 +1,16 @@
 
-Thanks to the following people for ideas, information, testing
-and for upgrading of various packages to conform to lm so that
-they work with dyn.  In particular, I learned the internals of
-lm with help from Whit:
+I learned about the internals of lm from Whit Armstrong, Ajay Shah provided
+tests/vcovHAC.R and demo/dyn-MCMCpack.R is modified from code by Delali
+Accolley developed.  Also this package would not be possible without the
+useful discussions with:
 
-  Whit Armstrong <Whit.Armstrong@tudor.com>
+  Delali Accolley <accolleyd@excite.com> - demo/dyn-MCMCpack.R
+  Whit Armstrong <Whit.Armstrong@tudor.com> - lm internals
   Matthieu Cormec <matthieu.cormec@gmail.com>
   Leila Farivar <farivar@uiuc.edu>
   Roger Koenker <rkoenker@uiuc.edu>
   Andy Liaw <andy_liaw@merck.com>
   David Meyer <david.meyer@wu-wien.ac.at>
-  Ajay Shah <ajayshah@mayin.org>
+  Ajay Shah <ajayshah@mayin.org> - tests/vcovHAC.R
   Achim Zeileis <Achim.Zeileis@wu-wien.ac.at>
 

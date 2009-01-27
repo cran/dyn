@@ -40,3 +40,8 @@ model.frame.zoo <- function (formula, data = NULL, ...)
 	attr(formula, "predvars") <- as.call(cl)
 	NextMethod("model.frame", formula, data = data, ...)
 }
+
+model.matrix.dyn <- function(object, ...) {
+	model.matrix(terms(object), model.frame(object), ...)
+}
+

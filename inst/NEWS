@@ -1,6 +1,24 @@
+Changes in 0.2-8
+
+  o model.matrix.dyn now available
+
+  o tests/vcovHAC.R (thanks to Ajay Shah)
+
+  o dyn-MCMCpack.R demo (thanks to Delali Accolley)
+
+  o fixed Rd files for R version 2.9.0's Rdversion 2 parser
+
+Changes in 0.2-7
+
+  o added dyn-onestep.R demo
+
+  o added demo source display in dyn-package.Rd
+
+  o added dyn$loess example to dyn.Rd
+
 Changes in 0.2-6
 
-  o updated description file
+  o updated email address in description file
 
 Changes in 0.2-5
 
