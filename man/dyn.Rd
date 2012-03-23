@@ -170,5 +170,39 @@ lines(fitted(dyn$loess(Nile ~ time(Nile))), col = "red")
 set.seed(1)
 yz <- zoo(rnorm(100)); xz <- zoo(rnorm(100))
 yz.lm <- dyn$lm(yz ~ lag(xz, 0:-3))
+
+
+###
+# simulate series and then NA out 7:10 and predict them
+###
+
+library(dyn)
+set.seed(123)
+tz <- zoo(cbind(Y = 0, x = rnorm(10), z = rnorm(10)))
+
+# simulate values
+for(i in 2:10) {
+ tz$Y[i] <- with(as.data.frame(tz), 
+	2*Y[i-1] + 3*z[i] +4* x[i] + 5*x[i-1] + rnorm(1))
+}
+
+# keep copy of tz to compare later to simulated Y's
+tz.orig <- tz
+
+# NA out Y's that are to be predicted
+tz[7:10, "Y"] <- NA
+
+L <- function(x, k = 1) lag(x, -k)
+
+# predict 1 ahead each iteration
+for(i in 7:10) {
+   # fit based on first i-1 values
+   fit <- dyn$lm(Y ~ L(Y) + z + L(x, 0:1), tz, subset = seq_len(i-1))
+   # get prediction for ith value
+   tz[i, "Y"] <- tail(predict(fit, tz[1:i,]), 1)
+}
+cbind(pred = tz[7:10, "Y"], act = tz.orig[7:10, "Y"])
+
+
 }
 \keyword{regression}

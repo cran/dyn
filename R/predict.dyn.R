@@ -56,7 +56,7 @@ predict.zoo <- function(object, newdata, ...) {
    # term list except for response
    tl <- as.list(attr(terms(object), "variables")[-1])[-1]
    tt <- eval(as.call(append(merge.zoo, tl)), newdata, env)
-   rval <- zoo(predict(object, newdata, ...), time(tt), freq = frequency(tt))
+   rval <- zoo(predict(object, newdata, ...), time(tt), frequency = frequency(tt))
    as.x <- paste("as", attr(model.frame(object), ".Class"), sep = ".")
    # workaround for bug in its
    # if (length(as.x) == 1 && as.x == "as.its") as.x <- "as.its.zoo" 

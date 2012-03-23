@@ -1,10 +1,16 @@
+Changes in 0.2-8.1
+
+  o changes needed to pass R CMD check on R 2.15.0
+
+  o corrected example in dyn.Rd
+
 Changes in 0.2-8
 
   o model.matrix.dyn now available
 
   o tests/vcovHAC.R (thanks to Ajay Shah)
 
-  o dyn-MCMCpack.R demo (thanks to Delali Accolley)
+  o dyn-mcmcpack.R demo (thanks to Delali Accolley)
 
   o fixed Rd files for R version 2.9.0's Rdversion 2 parser
 
