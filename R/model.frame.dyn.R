@@ -1,5 +1,7 @@
 model.frame.dyn <- function (formula, data = NULL, ...)
 {
+#        browser()
+#        cat("WE ARE IN model.frame.dyn", "\n")
 	if (!inherits(formula, "formula")) {
 		if (nargs() == 1) return(NextMethod("model.frame", formula))
 		return(NextMethod("model.frame", formula, data = data, ...))
@@ -42,6 +44,8 @@ model.frame.zoo <- function (formula, data = NULL, ...)
 }
 
 model.matrix.dyn <- function(object, ...) {
+        browser()
+        cat("WE ARE IN model.matrix.dyn", "\n")    
 	model.matrix(terms(object), model.frame(object), ...)
 }
 

@@ -1,1 +1,36 @@
 exportPattern(".")
+import(zoo)
+importFrom("stats", "anova", "fitted", "formula", "frequency",
+           "model.frame", "model.matrix", "na.omit", "predict",
+           "resid", "residuals", "terms", "time")
+S3method(anova,dyn)
+S3method(fitted,dyn)
+S3method(fitted,irts)
+S3method(fitted,its)
+S3method(fitted,ts)
+S3method(fitted,zoo)    
+S3method(fitted,zooreg)
+S3method(model.frame,dyn)
+S3method(model.frame,irts)
+S3method(model.frame,its)
+S3method(model.frame,ts)
+S3method(model.frame,zoo)
+S3method(model.frame,zooreg)
+S3method(model.matrix,dyn)
+S3method(predict,dyn)
+S3method(predict,irts)
+S3method(predict,its)
+S3method(predict,ts)
+S3method(predict,zoo)
+S3method(predict,zooreg)
+S3method(residuals,dyn)
+S3method(residuals,irts)
+S3method(residuals,its)
+S3method(residuals,ts)
+S3method(residuals,zoo)
+S3method(residuals,zooreg)
+S3method(update,dyn)
+
+
+
+

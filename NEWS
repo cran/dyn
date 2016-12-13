@@ -1,3 +1,16 @@
+Changes in 0.2-9.1
+
+  o modified DESCRIPTION file in order
+    to reflect change in maintainer
+    to Mark Leeds
+
+  o implemented patch provided by
+    Thomas Kalibera to fix current
+    error during running of test
+    in development version of R:
+    2016-11-10 r71645. Patch is in 
+    dyn.R
+
 Changes in 0.2-9
 
   o added NAMESPACE file

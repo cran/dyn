@@ -53,11 +53,7 @@ setback thermostat no longer used. Interesting question: What's the
 
 
 }
-\source{
-Zembower, Kevin, 
-\url{https://www.stat.math.ethz.ch/pipermail/r-help/2006-October/115499.html
-} and correction of one documentation item in \url{https://www.stat.math.ethz.ch/pipermail/r-help/2006-October/115632.html}.
-}
+
 \examples{
 library(lattice)
 data(baltimore)
@@ -67,3 +63,5 @@ xyplot(elect + gas ~ temp,
 	data = as.data.frame(baltimore), pch = 20, auto.key = TRUE)
 }
 \keyword{datasets}
+
+
