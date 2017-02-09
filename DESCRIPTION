@@ -1,6 +1,6 @@
 Package: dyn
-Version: 0.2-9.2
-Date: 2016-12-15
+Version: 0.2-9.3
+Date: 2017-02-08
 Title: Time Series Regression
 Author: G. Grothendieck
 Maintainer: M. Leeds <markleeds2@gmail.com>
@@ -15,7 +15,7 @@ Depends: R (>= 2.6.0), zoo (>= 1.0-0)
 Suggests: lattice, MASS, MCMCpack, quantreg (>= 3.82), randomForest,
         sandwich, tseries
 License: GPL
-Packaged: 2016-12-14 16:54:19 UTC; markleeds
+Packaged: 2017-02-08 23:30:30 UTC; markleeds
 Repository: CRAN
-Date/Publication: 2016-12-14 18:36:32
+Date/Publication: 2017-02-09 01:01:34
 NeedsCompilation: no

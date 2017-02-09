@@ -44,8 +44,8 @@ model.frame.zoo <- function (formula, data = NULL, ...)
 }
 
 model.matrix.dyn <- function(object, ...) {
-        browser()
-        cat("WE ARE IN model.matrix.dyn", "\n")    
+#       browser()
+#       cat("WE ARE IN model.matrix.dyn", "\n")    
 	model.matrix(terms(object), model.frame(object), ...)
 }
 
