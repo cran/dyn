@@ -30,7 +30,4 @@ S3method(residuals,ts)
 S3method(residuals,zoo)
 S3method(residuals,zooreg)
 S3method(update,dyn)
-
-
-
-
+S3method("$",dyn)

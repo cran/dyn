@@ -1,9 +1,40 @@
+Changes in 0.2-9.6
+
+ o   I Finally was able to
+     work out the pdflatex
+     problem and the url.sty
+     problems during R CMD
+     check with help
+     from Lou. Info
+     is in gmail dyn_cran
+     folder.
+
+Changes in 0.2-9.5
+
+ o   Lou solved the registering
+     S3Method $.dyn that I could
+     not figure out. See the
+     NAMESPACE file for how
+     he did that.
+
+Changes in 0.2-9.4
+
+ o   Working on figuring out
+     how to register $.dyn because the
+     debvelopment version of R now
+     needs all methods to be registerd.
+
+ o   Updated the date of last build.
+
+ o   Also having a problem locating
+     pdflatex on my windows.
+     
 Changes in 0.2-9.3
 
  o   removed browser statement that
      was mistakenyl left in the
      R code during debugging and
-     creaion of 0.2-9.2. 
+     creation of 0.2-9.2. 
 
 Changes in 0.2-9.2
 
